@@ -1,2 +1,2 @@
 # entryManagement
-Entry management software
+Entry management software using flask, SQLAlchemy, smtp and qwilio
