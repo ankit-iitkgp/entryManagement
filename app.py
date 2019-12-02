@@ -52,8 +52,8 @@ def exit():
 			datetime_object = datetime_object.strftime("%d-%b-%Y (%H:%M:%S.%f)")
 			result = visitors.query.filter_by(id = request.form['id']).all()
 			for entity in result:
-				h_mail = entity.h_email
-				h_num = entity.h_phone
+				v_mail = entity.v_email
+				v_num = entity.v_phone
 				sms = ('Visit Details\nName: '+entity.v_name+'\nEmail: '+ entity.v_email + '\nPhone: '+ entity.v_phone +'\nCheck In: '+ entity.v_cIn +'\nCheck Out: '+ datetime_object)
 				db.session.delete(entity)
 				flash('Record was successfully deleted')	
@@ -64,7 +64,7 @@ def exit():
 				# Authentication 
 			s.login(MY_ADDRESS, PASSWORD) 	
 				# sending the mail  
-			s.sendmail(MY_ADDRESS, h_mail, sms) 
+			s.sendmail(MY_ADDRESS, v_mail, sms) 
 			# terminating the session 
 			s.quit() 
 
@@ -73,7 +73,7 @@ def exit():
 			auth_token = '88d3e3834b82d7a2ac1019d681cf2eef' 
 			#Your own auth_token on twilio
 			client = Client(account_sid, auth_token) 
-			message = client.messages.create(from_=MY_NUMBER, body = sms, to = h_num) 
+			message = client.messages.create(from_=MY_NUMBER, body = sms, to = v_num) 
 
 	return render_template('exit.html')
 
