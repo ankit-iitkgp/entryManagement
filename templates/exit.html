@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <body>
+      <h2>Check-Out Details</h2>
+      <hr/>
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+   	<h2>
+         <a href = "{{ url_for('show_all') }}">Database page</a>
+    </h2>
+		
+      <h2>Visitors (<a href = "{{ url_for('new') }}">Add Visitor</a>)</h2>
+      <hr/>
+      <form action = "{{ request.path }}" method = "post">
+      	<label for = "id">ID Number</label><br>
+         <input type = "text" name = "id" placeholder = "ID" /><br>
+         <input type = "submit" value = "Submit" />
+      </form>
+   </body>

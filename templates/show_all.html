@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      <h2>
+         <a href = "{{ url_for('show_all') }}">Database page</a>
+      </h2>
+      
+      <hr/>
+		
+      <h2>Visitors (<a href = "{{ url_for('new') }}">Add Visitor</a>)</h2>
+      
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Phone</th>
+               <th>Check-in</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for visitor in visitors %}
+               <tr>
+                  <td>{{ visitor.id }}</td>
+                  <td>{{ visitor.v_name }}</td>
+                  <td>{{ visitor.v_email }}</td>
+                  <td>{{ visitor.v_phone }}</td>
+                  <td>{{ visitor.v_cIn }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+      <h2>Hosts </h2>
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Phone</th>
+               <th>Address</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for host in visitors %}
+               <tr>
+                  <td>{{ host.h_name }}</td>
+                  <td>{{ host.h_email }}</td>
+                  <td>{{ host.h_phone }}</td>
+                  <td>{{ host.address }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>

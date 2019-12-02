@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <h2>Add Details</h2>
+      <hr/>
+      
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <h2>Check-Out (<a href = "{{ url_for('exit') }}">Exit Visitor</a>)</h2>      
+      <form action = "{{ request.path }}" method = "post">
+         <h3>Add Visitor Details</h3>
+         <label for = "v_name">Name</label><br>
+         <input type = "text" name = "v_name" placeholder = "Name" /><br>
+         <label for = "v_email">Email</label><br>
+         <input type = "email" name = "v_email" placeholder = "E-Mail" /><br>
+         <label for = "v_phone">Phone No.</label><br>
+         <input type = "number" name = "v_phone" placeholder = "Phone" /><br>
+         <label for = "address">Address</label><br>
+         <textarea name = "address" placeholder = "address"></textarea><br>
+
+         <hr/>
+         <h3>Add Hosts Details</h3>
+         <label for = "h_name">Name</label><br>
+         <input type = "text" name = "h_name" placeholder = "Name" /><br>
+         <label for = "h_email">Email</label><br>
+         <input type = "email" name = "h_email" placeholder = "E-Mail" /><br>
+         <label for = "h_phone">Phone No.</label><br>
+         <input type = "number" name = "h_phone" placeholder = "Phone" /><br>
+
+         <input type = "submit" value = "Submit" />
+      </form>
+   </body>
+</html>
