@@ -10,8 +10,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.sqlite3'
 app.config['SECRET_KEY'] = "random String"
 
 MY_ADDRESS = "demoankit639@gmail.com"
-PASSWORD = "toolazy@69"
-MY_NUMBER = "+13346058405"
+PASSWORD = "XXXXXXXX"
+MY_NUMBER = "+xxxxxxxxxxx"
 
 db = SQLAlchemy(app)
 
@@ -68,9 +68,9 @@ def exit():
 			# terminating the session 
 			s.quit() 
 
-			account_sid = 'AC07f1474f17b0f7005351d7d202f88270' 
+			account_sid = 'Your_SID' 
 			#Your own account sid on twilio
-			auth_token = '88d3e3834b82d7a2ac1019d681cf2eef' 
+			auth_token = 'Your_auth_token' 
 			#Your own auth_token on twilio
 			client = Client(account_sid, auth_token) 
 			message = client.messages.create(from_=MY_NUMBER, body = sms, to = v_num) 
@@ -105,9 +105,9 @@ def new():
 			# terminating the session 
 			s.quit() 
 
-			account_sid = 'AC07f1474f17b0f7005351d7d202f88270' 
+			account_sid = 'YourSID' 
 			#Your own account sid on twilio
-			auth_token = '88d3e3834b82d7a2ac1019d681cf2eef' 
+			auth_token = 'your_auth_token' 
 			#Your own auth_token on twilio
 			client = Client(account_sid, auth_token) 
 			message = client.messages.create(from_= MY_NUMBER, body = message, to = userNo) 
